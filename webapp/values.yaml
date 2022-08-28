@@ -19,7 +19,7 @@ service:
     tls: []
 
 storage:
-  enabled: true
+  enabled: false
   size: 5Gi
   mountPath: /home/coder/project
   # Mount the distributed shared memory
