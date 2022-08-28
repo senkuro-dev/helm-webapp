@@ -39,8 +39,8 @@ spec:
             - name: RELEASE_DATE
               value: "{{ now }}"
             {{- range .Values.extraEnvs }}
-            - name: {{ toString .name }}
-              value: {{ toString .value }}
+            - name: {{ toString .name | quote }}
+              value: {{ toString .value | quote }}
             {{- end }}
           ports:
             - name: http
