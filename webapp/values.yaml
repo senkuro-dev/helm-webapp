@@ -29,6 +29,7 @@ extraEnvs: []
 # extraEnvs: 
 #   - name: PASSWORD
 #     value: mypassword
+secretsAsEnvs: []
 
 serviceAccount:
   # The name of the service account to use.

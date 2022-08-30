@@ -34,13 +34,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           workingDir: {{ .Values.storage.mountPath }}
+          envFrom:
+          {{- range .Values.secretsAsEnvs }}
+          - secretRef:
+              name: {{ . | quote }}
+          {{- end }}
           env:
             # To enable updating the image: https://github.com/kubernetes/kubernetes/issues/33664
             - name: RELEASE_DATE
               value: "{{ now }}"
             {{- range .Values.extraEnvs }}
-            - name: {{ toString .name | quote }}
-              value: {{ toString .value | quote }}
+            - {{ toYaml . | nindent 12 }}
             {{- end }}
           ports:
             - name: http
