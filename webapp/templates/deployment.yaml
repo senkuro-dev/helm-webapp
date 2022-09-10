@@ -51,26 +51,10 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if .Values.storage.enabled }}
           volumeMounts:
-            - name: data
-              mountPath: {{ .Values.storage.mountPath }}
-            {{- if .Values.storage.enableDshm }}
-            - name: dshm
-              mountPath: /dev/shm
-            {{- end }}
-          {{- end }}
-      {{- if .Values.storage.enabled }}
+            {{- toYaml .Values.volumeMounts | default "" | nindent 12 }}
       volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: {{ include "webapp.fullname" . }}
-        {{- if .Values.storage.enableDshm }}
-        - name: dshm
-          emptyDir:
-            medium: Memory
-        {{- end }}
-      {{- end }}
+        {{- toYaml .Values.volumes | default "" | nindent 8 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
