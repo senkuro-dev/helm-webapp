@@ -26,6 +26,7 @@ volumes: []
 storage:
   enabled: false
   className: standard
+  accessMode: ReadWriteOnce
   size: 100Mi
 
 extraEnvs: []
