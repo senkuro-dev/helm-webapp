@@ -26,6 +26,7 @@ volumes: []
 storage:
   enabled: false
   className: standard
+  size: 100Mi
 
 extraEnvs: []
 # extraEnvs: 
