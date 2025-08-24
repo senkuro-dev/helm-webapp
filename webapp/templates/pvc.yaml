@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "webapp.labels" . | nindent 4 }}
 spec:
+  storageClassName: {{ .Values.storage.className }}
   accessModes:
     - "ReadWriteMany"
   resources:

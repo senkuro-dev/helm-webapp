@@ -23,6 +23,10 @@ service:
 volumeMounts: []
 volumes: []
 
+storage:
+  enabled: false
+  className: standard
+
 extraEnvs: []
 # extraEnvs: 
 #   - name: PASSWORD
