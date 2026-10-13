@@ -20,6 +20,23 @@ service:
         paths: []
     tls: []
 
+httpRoute:
+  enabled: false
+  labels: {}
+  annotations: {}
+  # Gateways this route attaches to, for example:
+  # - group: gateway.networking.k8s.io
+  #   kind: Gateway
+  #   name: my-gateway
+  #   namespace: gateway-system
+  #   sectionName: https
+  parentRefs: []
+  hostnames: []
+  # Each rule may set matches, filters, timeouts and backendRefs.
+  # A rule without backendRefs routes to the master service.
+  # An empty list routes all traffic there.
+  rules: []
+
 volumeMounts: []
 volumes: []
 
