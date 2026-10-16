@@ -10,6 +10,7 @@ image:
 service:
   port: 8080
   type: ClusterIP
+  appProtocol: kubernetes.io/ws
   ingress:
     enabled: false
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
